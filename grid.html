@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>CSS Grid Beginner Demo</title>
+
+<style>
+/* ===== BASIC RESET ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f2f2f2;
+}
+
+/* ===== GRID PAGE LAYOUT ===== */
+/* Solves: full page structure */
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 3fr;   /* sidebar + main */
+  gap: 20px;
+  padding: 20px;
+}
+
+.sidebar {
+  background: #212529;
+  color: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.main {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+}
+
+/* ===== GRID GALLERY ===== */
+/* Solves: image gallery */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* ===== GRID SPANNING ===== */
+/* Solves: complex positioning */
+.boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin: 30px;
+}
+
+.box {
+  background: #0d6efd;
+  color: white;
+  padding: 30px;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.big {
+  grid-column: 1 / 3;  /* span 2 columns */
+  background: #198754;
+}
+</style>
+</head>
+
+<body>
+
+<!-- GRID PAGE -->
+<div class="layout">
+  <div class="sidebar">
+    <h2>Sidebar</h2>
+    <p>Grid column 1</p>
+  </div>
+
+  <div class="main">
+    <h2>Main Content</h2>
+    <p>Grid column 2</p>
+
+    <!-- GRID GALLERY -->
+    <div class="gallery">
+      <img src="https://picsum.photos/400/300?4">
+      <img src="https://picsum.photos/400/300?5">
+      <img src="https://picsum.photos/400/300?6">
+      <img src="https://picsum.photos/400/300?7">
+    </div>
+  </div>
+</div>
+
+<!-- GRID SPAN -->
+<div class="boxes">
+  <div class="box big">Spans Two Columns</div>
+  <div class="box">Box</div>
+  <div class="box">Box</div>
+  <div class="box">Box</div>
+</div>
+
+</body>
+</html>
